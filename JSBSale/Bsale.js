@@ -78,7 +78,7 @@ const loadProducts = (listProduct) =>{
     loadPagination(listProduct.number,listProduct.totalPages);
 
     /* se declaran un fragment que sirve para mantener los elementos que se van creando del template
-    ,el tProducts que es el template que contiene los elementos para la lista contenedora y
+    ,el tProducts que es el template que contiene los elementos para mostrar en la pagina y
      el containtproducts que es el contenedor principal que va a albergar los elementos del fragment 
      y mostrar los productos en el formulario*/
    
@@ -101,11 +101,24 @@ const loadProducts = (listProduct) =>{
         $containtproducts.appendChild($fragment)
 }
 
+/* Funcion que se utiliza para cargar la paginacion de los productos, se envia como parametro el numero de pagina y el total de paginas*/
+
 const loadPagination = (pageNumber,totalPage) =>{
+
+    /* se declaran un fragment que sirve para mantener los elementos que se van creando del template
+    ,el tPagination que es el template que contiene los elementos para el paginado y
+     el ulPagination que es el contenedor principal que va a albergar los elementos del fragment 
+     y muestra el paginado en el formulario*/
 
     let $fragment = d.createDocumentFragment(),
         $tPagination = d.getElementById('tPagination').content,
         $ulPagination = d.getElementById('contain-pagination')
+    
+    /* Recorro en base la cantidad total de paginas y si en el caso que la iteracion actual correspondia a la pagina obtenida,
+    en el tPagination se marca la pagina actual como activa, por cada itercion se va creando una etiqueta "a" para el numero de pagina a mostrar, 
+    , antes de terminar la iteracion se guarda todo los datos del tPagination dentro de copy y este se asigna al fragment,
+    una vez terminada las iteraciones el fragment se agrega al contenendor ulPagination para mostar las paginas y al final se invoca la funcion para
+    generar las acciones de los botones para cambiar de pagina*/        
         
     $ulPagination.innerHTML=""
     for(let i=0;i<totalPage;i++){
@@ -122,6 +135,10 @@ const loadPagination = (pageNumber,totalPage) =>{
     paginationAddEventListener()
 }
 
+/* Esta funcion sirve para realizar las acciones de mostrar los productos por categoria de la lista desplegable de categorias,
+    lo que realiza es que se obtiene todo los elementos de la lista mediante la clase category que se le agrego anteriormente, 
+    se recorre toda esos elementos y se le agrega las acciones por cada item y al hacer click en uno de los item se carga los producto segun lo seleccionado */
+
 const categoryAddEventListener = ()=>{
     $aCategories = d.getElementsByClassName('category')
     Array.from($aCategories).forEach(element => {
@@ -134,6 +151,12 @@ const categoryAddEventListener = ()=>{
         })
     });
 }
+
+/* Esta funcion sirve para realizar las acciones de mostrar los productos del paginado,
+    lo que realiza es que se obtiene todo los elementos del paginado mediante la clase lipage, 
+    se recorre toda esos elementos y se le agrega las acciones por cada item y al hacer click en uno de los item , 
+    se llama a la funcion para marcar la pagina seleccionadase y carga los producto segun lo seleccionado */
+
 
 const paginationAddEventListener = ()=>{
     $aPaginations = d.getElementsByClassName('lipage')
