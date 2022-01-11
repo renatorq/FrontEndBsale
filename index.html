@@ -19,7 +19,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Categorias
+                          CATEGORIAS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="dblist-Categories">
                             <li><a class="dropdown-item category" href="#" category="0">TODOS</a></li>
@@ -28,13 +28,12 @@
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" id="txtBuscar">
-                      <button class="btn btn btn-outline-primary" type="button" id="btnBuscar">Buscar</button>
+                      <input class="form-control me-2" type="search" placeholder="BUSCAR" aria-label="Buscar" id="txtBuscar">
+                      <button class="btn btn btn-outline-primary" type="button" id="btnBuscar">BUSCAR</button>
                     </form>
                   </div>
                 </div>
               </nav>
-              
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -46,7 +45,7 @@
                     </div>
                     <div class="col-md-6" >
                         <div class="d-flex justify-content-end" >
-                            <p>Mostrando</p>
+                            <p style="margin-right: 10px;">Mostrando  </p>
                             <select class="custom-select " id="cboSize">
                                 <option value="5">5 por Pagina</option>
                                 <option value="10" selected>10 por Pagina</option>
@@ -59,7 +58,7 @@
                     
                 </div>
                 
-                <div class="row" id="containt-products">
+                <div class="row " id="containt-products">
     
                 </div>
             
@@ -70,11 +69,13 @@
         </template>
 
         <template id="tProducts">
-            <div class="col-12 col-md-3 col-lg-3 col-sm-6 mb-4 ">
-                <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                    <img src="" class="img-fluid" alt="" style="height: 40vh; padding: 15px; width: 100%;">
+            <div class="col-12 col-md-6 col-lg-3 col-sm-6 mb-4">
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem; min-height: 200px;">
+                    <img src="" class="img-fluid" alt="" style="height: 300px; padding: 15px; width: 100%; object-fit: scale-down;">
                     <div class="card-body">
-                      <h7 class="card-title" id="p-name"></h7>
+                      <div class="row" style="min-height: 55px;">
+                        <h8 class="card-title" id="p-name"></h8>
+                      </div>
                       <hr>
                       <div class="row">
                         <div class="col-md-8">

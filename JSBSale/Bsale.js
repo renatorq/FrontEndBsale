@@ -62,7 +62,7 @@ const loadCategories = (listCategory) =>{
             dentro de copy y este se asigna al fragment, una vez terminada las iteraciones el fragment se agrega al contenendor uCategory para crear la lista completa*/
         
         listCategory.forEach(category => {
-            $tCategories.querySelector('a').textContent = category.name
+            $tCategories.querySelector('a').textContent = String(category.name).toUpperCase()
             $tCategories.querySelector('a').setAttribute('category',category.id)
             let $copy = d.importNode($tCategories,true)
             $fragment.appendChild($copy)
@@ -87,13 +87,13 @@ const loadProducts = (listProduct) =>{
         $containtproducts = d.getElementById('containt-products')
         
         /* Recorro la lista de productos y por cada itercion se va creando una etiqueta "img" para las imagenes, 
-        "h7" para el nombre del producto y "p" para el precio, para el template, antes de terminar la iteracion 
+        "h8" para el nombre del producto y "p" para el precio, para el template, antes de terminar la iteracion 
         se guarda todo los datos del tProducts  dentro de copy y este se asigna al fragment,
         una vez terminada las iteraciones el fragment se agrega al contenendor containtproducts para mostar el producto en la pagina*/
         $containtproducts.innerHTML=""
         listProduct.content.forEach(product => {
             $tProducts.querySelector('img').setAttribute('src',(product.urlImage== undefined || product.urlImage== '')?'img/noimage.png':product.urlImage)
-            $tProducts.querySelector('h7').textContent = product.name
+            $tProducts.querySelector('h8').textContent =  String(product.name).toUpperCase()
             $tProducts.querySelector('p').textContent = `$ ${product.price.toFixed(2)}`
             let $copy = d.importNode($tProducts,true)
             $fragment.appendChild($copy)
