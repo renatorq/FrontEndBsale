@@ -170,6 +170,8 @@ const paginationAddEventListener = ()=>{
     });
 }
 
+/* funcion para que la pagina seleccionada se marque como activa, lo que realiza es que se obtiene todo los elementos del paginado mediante la clase lipage
+    , recorre los elementos que existan y si la pagina corresponde a la iteraccion se marca la pagina seleccionada */
 const selectPageActive = (page) =>{
     $aPaginations = d.getElementsByClassName('lipage')
     Array.from($aPaginations).forEach((element,index) => {
@@ -179,6 +181,9 @@ const selectPageActive = (page) =>{
         }   
     });
 }
+
+/* funcion del DOM que se ejecuta al cargar pa lagina, se ejecuta la obtencion de la lista de categorias, la carga de las categorias en la lista desplegable,
+    la obtencion de productos, la carga de los productos para visualizar y las acciones de la lista desplegable */
 
 d.addEventListener("DOMContentLoaded", async() => {
         
@@ -190,15 +195,20 @@ d.addEventListener("DOMContentLoaded", async() => {
 
 })
 
+/* funcion del evento click del boton de busqueda, obtine lo escrito en la caja de texto para enviarlo al servicio para obtener la lista de productos 
+y posteriomente cargar los productos en la pagina */ 
+
 $btnBuscar.addEventListener('click', async() => {
 
     let name = `?name=${$txtBuscar.value}`
     let listProduct = await getData(urlProductbyName+name);
-    console.log(listProduct)
 
     loadProducts(listProduct)
 
 })
+
+/* funcion del evento "change" de combo para le tamaño de productos a mostrar en la pagina, se envia la cantidad de elementos a mostrar al servicio para obtener los productos
+    y posteriormente los carga para mostrar en la pagina, tambien se habilita las acciones de la lista desplegable de categorias */
 
 $cboSize.addEventListener('change',async()=>{
 
